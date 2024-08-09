@@ -8,9 +8,10 @@ import path from "path";
 export default defineConfig({
 	root: ".",
 	base: ".",
-	site: "https://zddq.github.io/my-blog/",
+	site: "https://zddq.github.io/my-blog",
 	trailingSlash: "ignore",
 	integrations: [mdx(), sitemap()],
+	outDir: "docs",
 	vite: {
 		resolve: {
 			"@": path.resolve("src/"),
