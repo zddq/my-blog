@@ -1,9 +1,133 @@
 ---
-import { Footer, Header, HeadSeo, Layout } from "@/components";
+import { Layout } from "@/components";
 ---
 
 <Layout title="首页" desc="个人网站">
-	<main class="">
-		<h1>首页</h1>
+	<main class:list="main">
+		<section class="section">
+			<div class="sectionL">
+				<p>我是ZDDQ,</p>
+				<p>一名 前端工程师, 写 <span class="skill">React / Next</span> 的</p>
+				<p>喜欢简约设计 TOO 🛀，</p>
+				<p><span id="typeWriter"></span></p>
+			</div>
+
+			<div class="sectionR">
+				<div class="rocket" id="rocket">
+					<img class="rocketImg" src="/public/rocket.webp" />
+					<span id="fire1" class="fire fire1"></span>
+					<span id="fire2" class="fire fire2"></span>
+				</div>
+			</div>
+		</section>
 	</main>
 </Layout>
+
+<script>
+	import Typed from "typed.js";
+
+	import { TypedOptions } from "./config";
+	import Lottie, { type AnimationItem } from "lottie-web";
+
+	// 打字效果
+	new Typed("#typeWriter", { strings: TypedOptions, typeSpeed: 80, backSpeed: 60, backDelay: 600, loop: true }).start();
+
+	// 火🔥
+	const fire1 = document.querySelector("#fire1");
+	const lottie1: AnimationItem | null = fire1 ? Lottie.loadAnimation({ container: fire1, renderer: "svg", loop: true, autoplay: false, path: "/lottie/fire.json" }) : null;
+	const fire2 = document.querySelector("#fire2");
+	const lottie2 = fire2 ? Lottie.loadAnimation({ container: fire2, renderer: "svg", loop: true, autoplay: false, path: "/lottie/fire.json" }) : null;
+
+	function onRocketMouseEnter() {
+		lottie1?.play();
+		lottie2?.play();
+	}
+	function onRocketMouseLeave() {
+		setTimeout(() => {
+			lottie1?.pause();
+			lottie2?.pause();
+		}, 1200);
+	}
+	const rocketDom = document.getElementById("rocket");
+	rocketDom?.addEventListener("mouseenter", onRocketMouseEnter);
+	rocketDom?.addEventListener("mouseleave", onRocketMouseLeave);
+</script>
+
+<style>
+	.mian {
+		flex: 1;
+	}
+
+	.section {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		padding: 0 80px;
+		margin-top: 4px;
+		height: calc(100vh - 64px);
+		background: url("/public/bg.svg");
+
+		color: #002249;
+		font-size: 52px;
+		font-weight: 600;
+		font-family: fantasy, Heavy, Helvetica, Arial, sans-serif;
+		line-height: 1.5;
+	}
+
+	.sectionL {
+		flex: 1;
+	}
+
+	.skill {
+		color: #ffd111;
+		font-weight: 700;
+		text-shadow:
+			2px 2px 0 #ffcc00,
+			4px 4px 0 #ff9900,
+			6px 6px 0 #ff6600;
+	}
+
+	/* --- 右侧 */
+	.sectionR {
+		cursor: pointer;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		transition: all linear 2s;
+	}
+
+	.rocket {
+		position: relative;
+		width: 420px;
+		transition: all ease-in 1s;
+		&:hover {
+			transform: translate(-80px, 40px);
+		}
+	}
+
+	.rocketImg {
+		position: relative;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	.fire {
+		width: 180px;
+		height: 180px;
+		transform: rotate(90deg);
+	}
+	.fire1 {
+		position: absolute;
+		right: -180px;
+		top: 100px;
+	}
+	.fire2 {
+		position: absolute;
+		right: -160px;
+		bottom: 140px;
+	}
+</style>

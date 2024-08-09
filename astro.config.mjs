@@ -1,9 +1,8 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-import path from "path";
-
 import sitemap from "@astrojs/sitemap";
-console.log(path.resolve("src"));
+import mdx from "@astrojs/mdx";
+
+import path from "path";
 
 // https://astro.build/config
 export default defineConfig({

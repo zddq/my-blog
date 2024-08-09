@@ -1,5 +1,7 @@
 ---
-import { Footer, Header, HeadSeo } from "@/components";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+import HeadSeo from "./HeadSeo.astro";
 
 interface Props {
 	/**
@@ -20,9 +22,19 @@ const { title = "ZDDQ 个人博客", desc = "记录" } = Astro.props;
 	<head>
 		<HeadSeo title={title} description={desc} />
 	</head>
-	<body>
+	<body class="body">
 		<Header />
 		<slot />
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		background-color: #fff;
+	}
+</style>
