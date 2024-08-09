@@ -1,7 +1,7 @@
 ---
-import Footer from "./Footer.astro";
-import Header from "./Header.astro";
 import HeadSeo from "./HeadSeo.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 
 interface Props {
 	/**
@@ -25,7 +25,7 @@ const { title = "ZDDQ 个人博客", desc = "记录" } = Astro.props;
 	<body class="body">
 		<Header />
 		<slot />
-		<!-- <Footer /> -->
+		<Footer />
 	</body>
 </html>
 

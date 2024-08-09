@@ -1,13 +1,11 @@
 ---
 import { GITHUB_URL } from "@/config";
-
-const today = new Date();
 ---
 
-<footer>
-	<p>&copy; {today.getFullYear()} ZDDQ. All rights reserved.</p>
-	<div class="social-links">
-		<a href={GITHUB_URL} target="_blank">
+<footer class="footer">
+	<!-- <p>&copy; {today.getFullYear()} ZDDQ. All rights reserved.</p> -->
+	<div class="links">
+		<a class="github" href={GITHUB_URL} target="_blank">
 			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github">
 				<path
 					fill="currentColor"
@@ -18,9 +16,17 @@ const today = new Date();
 	</div>
 </footer>
 <style>
-	footer {
-		backugrond: rgba(217, 217, 217, 0.3);
-		color: rgb(var(--gray));
+	.footer {
+		padding: 20px 80px;
 		text-align: center;
+		font-size: 24px;
+	}
+
+	.links {
+		/* margin-top: 12px; */
+	}
+
+	.github {
+		color: var(--black);
 	}
 </style>
