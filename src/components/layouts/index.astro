@@ -1,0 +1,28 @@
+---
+import { Footer, Header, HeadSeo } from "@/components";
+
+interface Props {
+	/**
+	 * 页面标题
+	 */
+	title?: string;
+	/**
+	 * 页面描述
+	 */
+	desc?: string;
+}
+
+const { title = "ZDDQ 个人博客", desc = "记录" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<HeadSeo title={title} description={desc} />
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>
