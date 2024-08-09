@@ -8,7 +8,7 @@ import path from "path";
 export default defineConfig({
 	root: ".",
 	base: ".",
-	site: "",
+	site: "https://zddq.github.io/my-blog/",
 	trailingSlash: "ignore",
 	integrations: [mdx(), sitemap()],
 	vite: {
