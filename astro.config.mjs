@@ -7,8 +7,7 @@ import path from "path";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://zddq.github.io",
-	output: "static",
-	trailingSlash: "ignore",
+	base: "/my-blog/",
 	integrations: [mdx(), sitemap()],
 	outDir: "docs",
 	vite: {
