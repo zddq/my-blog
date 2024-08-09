@@ -16,27 +16,6 @@
 }
 
 @font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-faimily: "Heavy";
-	src: url("/fonts/Heavy.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
 	font-faimily: "Siyuan";
 	src: url("/fonts/Siyuan.woff") format("woff");
 	font-weight: 700;
@@ -44,9 +23,15 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-faimily: "Heavy";
+	src: url("/fonts/Heavy.woff") format("woff");
+	font-weight: 700;
+}
+
 /* CSS Reset */
 html {
-	font-family: "Atkinson", sans-serif;
+	font-family: fantasy, sans-serif;
 }
 
 html,
@@ -133,8 +118,8 @@ video {
 	padding: 0;
 	margin: 0;
 	border: 0;
-	box-sizing: border-box;
 	font-family: inherit;
+	box-sizing: border-box;
 	vertical-align: baseline;
 }
 

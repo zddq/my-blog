@@ -8,7 +8,7 @@ import path from "path";
 export default defineConfig({
 	root: ".",
 	base: ".",
-	site: "https://example.com",
+	site: "",
 	trailingSlash: "ignore",
 	integrations: [mdx(), sitemap()],
 	vite: {

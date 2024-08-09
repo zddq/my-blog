@@ -7,14 +7,15 @@ import { Layout } from "@/components";
 		<!-- 首屏展示 -->
 		<section class="section">
 			<div class="sectionL">
-				<p>我是ZDDQ,</p>
+				<!-- <p>我是ZDDQ,</p> -->
+				<p>我是<strong>ZengDaiDuanQiu</strong>,</p>
 				<p>一名 前端工程师, 写 <span class="skill">React / Next</span> 的</p>
 				<p>喜欢简约设计 TOO 🛀，</p>
 				<p><span id="typeWriter"></span></p>
 			</div>
 			<div class="sectionR">
 				<div class="rocket" id="rocket">
-					<img class="rocketImg" src="/public/rocket.webp" />
+					<img class="rocketImg" src="/public/imgs/rocket.webp" />
 					<span id="fire1" class="fire fire1"></span>
 					<span id="fire2" class="fire fire2"></span>
 				</div>
@@ -43,12 +44,15 @@ import { Layout } from "@/components";
 	const lottie2 = fire2 ? Lottie.loadAnimation({ container: fire2, renderer: "svg", loop: true, autoplay: false, path: "/lottie/fire.json" }) : null;
 
 	// 火箭移动火焰🔥特性
+	let TID: NodeJS.Timeout;
 	function onRocketMouseEnter() {
+		TID && clearTimeout(TID);
 		lottie1?.play();
 		lottie2?.play();
 	}
 	function onRocketMouseLeave() {
-		setTimeout(() => {
+		TID && clearTimeout(TID);
+		TID = setTimeout(() => {
 			lottie1?.pause();
 			lottie2?.pause();
 		}, 1300);
@@ -75,13 +79,13 @@ import { Layout } from "@/components";
 		padding: 0 80px;
 		margin-top: 4px;
 		height: calc(100vh - 64px);
-		background: url("/public/bg.svg");
+		background: url("/public/svgs/bg.svg");
 
 		color: #002249;
 		font-size: 52px;
 		font-weight: 600;
-		font-family: fantasy, Heavy, Helvetica, Arial, sans-serif;
 		line-height: 1.5;
+		font-family: Heavy, fantasy !important;
 	}
 
 	.sectionL {
@@ -91,6 +95,7 @@ import { Layout } from "@/components";
 	.skill {
 		color: #ffd111;
 		font-weight: 700;
+		font-family: Havey;
 		text-shadow:
 			2px 2px 0 #ffcc00,
 			4px 4px 0 #ff9900,
