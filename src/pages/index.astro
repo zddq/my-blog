@@ -4,6 +4,7 @@ import { Layout } from "@/components";
 
 <Layout title="首页" desc="个人网站">
 	<main class:list="main">
+		<!-- 首屏展示 -->
 		<section class="section">
 			<div class="sectionL">
 				<p>我是ZDDQ,</p>
@@ -11,7 +12,6 @@ import { Layout } from "@/components";
 				<p>喜欢简约设计 TOO 🛀，</p>
 				<p><span id="typeWriter"></span></p>
 			</div>
-
 			<div class="sectionR">
 				<div class="rocket" id="rocket">
 					<img class="rocketImg" src="/public/rocket.webp" />
@@ -19,15 +19,19 @@ import { Layout } from "@/components";
 					<span id="fire2" class="fire fire2"></span>
 				</div>
 			</div>
+			<span class="arrowDown" id="arrowDown"></span>
 		</section>
+
+		<!-- 个人介绍 -->
+
+		<!-- 项目介绍 -->
 	</main>
 </Layout>
 
 <script>
-	import Typed from "typed.js";
-
-	import { TypedOptions } from "./config";
 	import Lottie, { type AnimationItem } from "lottie-web";
+	import Typed from "typed.js";
+	import { TypedOptions } from "./config";
 
 	// 打字效果
 	new Typed("#typeWriter", { strings: TypedOptions, typeSpeed: 80, backSpeed: 60, backDelay: 600, loop: true }).start();
@@ -38,6 +42,7 @@ import { Layout } from "@/components";
 	const fire2 = document.querySelector("#fire2");
 	const lottie2 = fire2 ? Lottie.loadAnimation({ container: fire2, renderer: "svg", loop: true, autoplay: false, path: "/lottie/fire.json" }) : null;
 
+	// 火箭移动火焰🔥特性
 	function onRocketMouseEnter() {
 		lottie1?.play();
 		lottie2?.play();
@@ -46,11 +51,15 @@ import { Layout } from "@/components";
 		setTimeout(() => {
 			lottie1?.pause();
 			lottie2?.pause();
-		}, 1200);
+		}, 1300);
 	}
 	const rocketDom = document.getElementById("rocket");
 	rocketDom?.addEventListener("mouseenter", onRocketMouseEnter);
 	rocketDom?.addEventListener("mouseleave", onRocketMouseLeave);
+
+	// 向下箭头
+	const arrowDownDom = document.getElementById("arrowDown");
+	arrowDownDom && Lottie.loadAnimation({ container: arrowDownDom, renderer: "svg", loop: true, autoplay: true, path: "/lottie/arrow-down.json" });
 </script>
 
 <style>
@@ -129,5 +138,36 @@ import { Layout } from "@/components";
 		position: absolute;
 		right: -160px;
 		bottom: 140px;
+	}
+
+	.arrowDown {
+		cursor: pointer;
+		position: absolute;
+		left: 50%;
+		bottom: 20px;
+
+		width: 100px;
+		height: 100px;
+		&:hover {
+			&::before {
+				width: 108px;
+				height: 108px;
+			}
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			transition: all linear 0.3s;
+
+			width: 0;
+			height: 0;
+			background-color: pink;
+			border-radius: 50%;
+			opacity: 0.3;
+		}
 	}
 </style>
