@@ -4,12 +4,55 @@ import { Layout } from "@/components";
 
 <Layout>
 	<main class="main">
-		<h1>400</h1>
+		<span class="notFound" id="notFound"></span>
+		<button class="btn" id="btn">返回首页</button>
 	</main>
 </Layout>
+<script>
+	import Lottie from "lottie-web";
+	const notFoundDom = document.getElementById("notFound");
+	notFoundDom && Lottie.loadAnimation({ container: notFoundDom, renderer: "svg", loop: true, autoplay: true, path: "/lottie/404.json" });
+
+	// 返回首页
+	const goHomeBtn = document.getElementById("btn");
+	goHomeBtn?.addEventListener("click", function () {
+		window.location.href = "/";
+	});
+</script>
 
 <style>
 	.main {
-		background-color: red;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.notFound {
+		width: 600px;
+		margin-top: -200px;
+	}
+
+	.btn {
+		position: relative;
+		z-index: 2;
+
+		width: 180px;
+		height: 50px;
+		border-radius: 8px;
+		margin: -120px auto 0;
+		transition: all linear 0.3s;
+
+		color: #fff;
+		font-size: 1.5em;
+		background-color: #2a2d4d;
+
+		&:hover {
+			background-color: #373752;
+		}
+
+		&:active {
+			background-color: #69697c;
+		}
 	}
 </style>

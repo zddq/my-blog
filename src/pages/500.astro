@@ -3,7 +3,67 @@ import { Layout } from "@/components";
 ---
 
 <Layout>
-	<main>
-		<h1>无服务错误 500</h1>
+	<main class="main">
+		<div class="serverErr">
+			<span class="serverErrNum">500</span>
+			<span class="serverErrLine">-</span>
+			<span class="serverErrTxt">服务器内部崩溃啦 =-=</span>
+		</div>
+		<button class="btn">返回首页</button>
 	</main>
 </Layout>
+
+<style>
+	.main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.serverErr {
+		display: flex;
+		align-items: center;
+	}
+
+	.serverErrNum {
+		font-size: 12em;
+		font-weight: 700;
+	}
+
+	.serverErrLine {
+		display: inline-block;
+		margin: 0px 20px;
+		font-size: 8em;
+	}
+
+	.serverErrTxt {
+		letter-spacing: 2px;
+		font-size: 4em;
+		font-weight: 700;
+		margin-top: 20px;
+	}
+
+	.btn {
+		position: relative;
+		z-index: 2;
+
+		width: 180px;
+		height: 50px;
+		border-radius: 8px;
+		margin: 44px auto 0;
+		transition: all linear 0.3s;
+
+		color: #fff;
+		font-size: 1.5em;
+		background-color: #2a2d4d;
+
+		&:hover {
+			background-color: #373752;
+		}
+
+		&:active {
+			background-color: #69697c;
+		}
+	}
+</style>

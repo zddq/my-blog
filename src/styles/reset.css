@@ -173,3 +173,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+button {
+	user-select: none;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
