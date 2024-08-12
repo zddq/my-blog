@@ -6,11 +6,12 @@ import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [mdx(), sitemap()],
 	site: "https://zddq.github.io",
-	base: import.meta.env.DEV ? "." : "/my-blog/",
 	trailingSlash: "always",
-	outDir: "docs",
+	outDir: "dist",
+	base: "/my-blog",
+
+	integrations: [mdx(), sitemap()],
 	vite: {
 		resolve: {
 			"@": path.resolve("src/"),
