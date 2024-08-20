@@ -9,7 +9,7 @@ export default defineConfig({
 	site: "https://zddq.github.io",
 	trailingSlash: "always",
 	outDir: "dist",
-	base: "/my-blog",
+	base: "/",
 
 	integrations: [mdx(), sitemap()],
 	vite: {

@@ -1,0 +1,11 @@
+services:
+  my-blog:
+    image: my-blog-image:1.0.0
+    container_name: my-blog
+    restart: always
+    build:
+      context: .
+    ports:
+      - 80:80
+    environment:
+      NODE_ENV: production
